@@ -10,7 +10,8 @@
 ## 0. 版本指纹（刷之前先核对，确保刷的是正确产物）
 
 | 版本 | 大小 | SHA‑256 (.bin) |
-|---|---|---|| **v5.2-A**（单边唤醒/续航优先） | `74760` B | `1cf5b7a6d7e8f3e5cfc8c26fcd790cbeefa96f00626fe8023098fa6509ee2ac4` |
+|---|---|---|
+| **v5.2-A**（单边唤醒/续航优先） | `74760` B | `1cf5b7a6d7e8f3e5cfc8c26fcd790cbeefa96f00626fe8023098fa6509ee2ac4` |
 | **v5.2-B**（双边唤醒/体验优先，推荐） | `74752` B | `6d3f5d32235cffa6568595f2a3e5762f8fe5c0b5322acd8d0864ddfca88cbe9c` |
 
 产物在 Releases（含 `.hex` 与 `SHA256SUMS.txt`）；自建见 README"自行构建"（同一份源码，B 版加 `LINK_WATCH_ALWAYS=yes`）。
