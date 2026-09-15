@@ -42,7 +42,6 @@
 ## 文件
 
 ```
-firmware/v5/     # 历史版本
 firmware/v5.2/   # 当前推荐（A/B 的 .bin/.hex + SHA256SUMS）
 firmware/v3.3/, firmware/v4/   # 历史版本（.bin/.hex + SHA256SUMS.txt）
 patches/                       # 相对 SRGBmods/EpomakerQMK@10dfd3e8 的键盘目录 diff（可审计/自建）
