@@ -1,7 +1,7 @@
 # EPOMAKER Split65 固件改造 · 全程踩坑记录
 
 > 配套文档：`docs/flashing-guide.zh.md`（同目录）
-> 最终固件：**v4**，SHA‑256 `e8118285ba0a89940fa928bc939808061456197a05d8366b11ebecff154cfa5f`（74436 字节）。v3.3 全功能实测通过（2026-09-15）；v4 仅追加"禁用深睡恢复双侧唤醒"，待你实测。
+> 当前发布：**v5（A/B 两版，链路自诊断灯）**；v3.3/v4 保留。v3.3 曾全功能实测通过（2026-09-15）。
 
 ---
 
@@ -27,6 +27,7 @@ repo 里 readme 引用的 `howto.jpg` 是**死链**（GitHub API 核实过：car
 | v3.2 | PrtSc **摘 Shift 干净边沿**（`get_mods` 存实际位→`del_mods`→`register_code16`→**`send_keyboard_report()`**→`add_mods` 精确装回） |
 | v3.3 | 指示亮度联动：`hs_ind_val() = min(val + 2×STEP, MAX)`（当前 = +60 / 封顶 150），覆盖红灯排/白闪/Caps/Win |
 | **v4** | **彻底禁用 LPWR 深睡**（`lpwr_is_allow_timeout_hook`→`return false`）：左右两半任意键即按即醒，恢复出厂唤醒行为；无线待机"数月→数周~月" |
+| **v5** | 链路健康自诊断：`0xF1` RPC（每秒、互报充电态）+ 两侧 `7` 键灯（绿=数据好/红闪=数据断/黄闪=有线一半没5V）；**A/B 同源码两版**：`LINK_WATCH_ALWAYS=yes` 决定关不关深睡与红灯是否全程生效 |
 
 ---
 

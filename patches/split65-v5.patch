@@ -1,0 +1,299 @@
+diff --git a/keyboards/epomaker/split65/keymaps/default/keymap.c b/keyboards/epomaker/split65/keymaps/default/keymap.c
+index 83bef3e8..05021015 100644
+--- a/keyboards/epomaker/split65/keymaps/default/keymap.c
++++ b/keyboards/epomaker/split65/keymaps/default/keymap.c
+@@ -17,27 +17,27 @@ enum layers {
+ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+ 
+     [_BL] = LAYOUT( /* Base */
+-        QK_GESC,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_MUTE,
++        KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_MUTE,
+         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS, KC_DEL,
+         KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,            KC_PGUP,
+         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,               KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,            KC_RSFT,  KC_UP,   KC_PGDN,
+         KC_LCTL,  KC_LCMD,  KC_LALT,  KC_SPC,                                 KC_SPC,   KC_RALT,  MO(_FL),  KC_RCTL,                      KC_LEFT,  KC_DOWN, KC_RGHT),
+ 
+     [_FL] = LAYOUT( /* Base */
+-        KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,     KC_F10,   KC_F11,  KC_F12,   EE_CLR,   KC_MUTE,
++        KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,     KC_F10,   KC_F11,  KC_F12,   EE_CLR,   KC_MUTE,
+         RM_NEXT,  KC_BT1,   KC_BT2,   KC_BT3,   KC_2G4,   KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,      KC_P,     RM_HUED, RM_HUEU,  KC_BSLS,  KC_INS,
+         KC_CAPS,  KC_A,     TO(_MBL), KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,      RM_SATD,  RM_SATU, KC_ENT,             KC_HOME,
+         KC_LSFT,  KC_Z,     RM_TOGG,  KC_C,     KC_V,     HS_BATQ,            NK_TOGG,  KC_M,     KC_COMM,  KC_DOT,    KC_SLSH,           KC_RSFT,  RM_VALU,  KC_END,
+         KC_FILP,  GU_TOGG,  KC_LALT,  KC_BATQ,                                KC_SPC,   KC_RALT,  KC_NO,    KC_RCTL,                      RM_SPDD,  RM_VALD,  RM_SPDU),
+ 
+     [_MBL] = LAYOUT( /* Base */
+-        QK_GESC,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_MUTE,
++        KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_MUTE,
+         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS, KC_DEL,
+         KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,            KC_PGUP,
+         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,               KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,            KC_RSFT,  KC_UP,   KC_PGDN,
+         KC_LCTL,  KC_LALT,  KC_LGUI,  KC_SPC,                                 KC_SPC,   KC_RGUI,  MO(_MFL), KC_RCTL,                      KC_LEFT,  KC_DOWN, KC_RGHT),
+     [_MFL] = LAYOUT( /* Base */
+-        KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,     KC_F10,   KC_F11,  KC_F12,   EE_CLR,   KC_MUTE,
++        KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,     KC_F10,   KC_F11,  KC_F12,   EE_CLR,   KC_MUTE,
+         RM_NEXT,  KC_BT1,   KC_BT2,   KC_BT3,   KC_2G4,   KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,      KC_P,     RM_HUED, RM_HUEU,  KC_BSLS,  KC_INS,
+         KC_CAPS,  TO(_BL),  KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,      RM_SATD,  RM_SATU, KC_ENT,             KC_HOME,
+         KC_LSFT,  KC_Z,     RM_TOGG,  KC_C,     KC_V,     HS_BATQ,            NK_TOGG,  KC_M,     KC_COMM,  KC_DOT,    KC_SLSH,           KC_RSFT,  RM_VALU,  KC_END,
+diff --git a/keyboards/epomaker/split65/post_rules.mk b/keyboards/epomaker/split65/post_rules.mk
+index bf8832ec..42f6d1ae 100644
+--- a/keyboards/epomaker/split65/post_rules.mk
++++ b/keyboards/epomaker/split65/post_rules.mk
+@@ -2,3 +2,10 @@ RGB_MATRIX_CUSTOM_USER = yes
+ include keyboards/$(KEYBOARD)/rgb_record/rgb_record.mk
+ include keyboards/$(KEYBOARD)/wls/wls.mk
+ include keyboards/$(KEYBOARD)/linker/wireless/wireless.mk
++
++# Build-time edition switch:
++#   make epomaker/split65:default                      -> edition A (deep sleep kept, left-wake, red flash only when wired)
++#   make epomaker/split65:default LINK_WATCH_ALWAYS=yes -> edition B (LPWR disabled, both-wake, red flash anywhere)
++ifeq ($(strip $(LINK_WATCH_ALWAYS)), yes)
++    OPT_DEFS += -DLINK_WATCH_ALWAYS
++endif
+diff --git a/keyboards/epomaker/split65/split65.c b/keyboards/epomaker/split65/split65.c
+index 9291b101..2963b05c 100644
+--- a/keyboards/epomaker/split65/split65.c
++++ b/keyboards/epomaker/split65/split65.c
+@@ -65,6 +65,8 @@ uint32_t        post_init_timer       = 0x00;
+ bool            inqbat_flag           = false;
+ bool            mac_status            = false;
+ bool            charging_state        = false;
++static uint32_t link_rx_ms            = 0;
++static uint8_t  link_peer_charging    = 0;
+ bool            bat_full_flag         = false;
+ bool            enable_bat_indicators = true;
+ uint32_t        bat_indicator_cnt     = 0;
+@@ -149,6 +151,7 @@ void keyboard_post_init_kb(void) {
+ #endif
+ 
+     eeconfig_confinfo_init();
++    link_rx_ms = timer_read32();
+ 
+     // Only master controls LED_POWER_EN_PIN/EN2_PIN directly
+     // Slave uses A5/A8 controlled via RPC commands
+@@ -297,12 +300,17 @@ void suspend_power_down_user(void) {
+ }
+ 
+ bool lpwr_is_allow_timeout_hook(void) {
+-
+-    if (wireless_get_current_devs() == DEVS_USB && is_keyboard_master()) {
++#ifdef LINK_WATCH_ALWAYS
++    // edition B ("both-wake"): never enter LPWR deep sleep.
++    return false;
++#else
++    // edition A ("left-wake", factory power scheme): no deep sleep while USB, allow in wireless.
++    if (wireless_get_current_devs() == DEVS_USB) {
+         return false;
+     }
+ 
+     return true;
++#endif
+ }
+ 
+ bool lpwr_is_allow_presleep_hook(void) {
+@@ -585,6 +593,14 @@ void im_rgblight_increase(void) {
+ 
+ uint32_t hs_ct_time;
+ RGB      rgb_test_open;
++static uint8_t hs_ind_val(void) {
++    uint16_t iv = (uint16_t)rgb_matrix_get_val() + (RGB_MATRIX_VAL_STEP * 2);
++    if (iv > RGB_MATRIX_MAXIMUM_BRIGHTNESS) {
++        iv = RGB_MATRIX_MAXIMUM_BRIGHTNESS;
++    }
++    return (uint8_t)iv;
++}
++
+ bool     process_record_kb(uint16_t keycode, keyrecord_t *record) {
+ 
+     if (process_record_user_split65(keycode, record) != true) {
+@@ -981,10 +997,61 @@ bool     process_record_kb(uint16_t keycode, keyrecord_t *record) {
+             }
+             return true;
+         } break;
++        case KC_ESC: {
++            if (confinfo.filp && !(layer_state & ((1u << _FL) | (1u << _MFL)))) {
++                if (record->event.pressed) {
++                    register_code(KC_GRV);
++                } else {
++                    unregister_code(KC_GRV);
++                }
++                return false;
++            }
++            return true;
++        } break;
++        case KC_GRV: {
++            if (confinfo.filp && !(layer_state & ((1u << _FL) | (1u << _MFL)))) {
++                if (record->event.pressed) {
++                    register_code(KC_ESC);
++                } else {
++                    unregister_code(KC_ESC);
++                }
++                return false;
++            }
++            return true;
++        } break;
++        case KC_BSPC: {
++            static bool    pscr_down  = false;
++            static uint8_t pscr_saved = 0;
++            if (record->event.pressed) {
++                if (get_mods() & MOD_MASK_SHIFT) {
++                    pscr_down  = true;
++                    pscr_saved = get_mods() & MOD_MASK_SHIFT;
++                    del_mods(pscr_saved);
++                    register_code16(KC_PSCR);
++                    send_keyboard_report();
++                    add_mods(pscr_saved);
++                    return false;
++                }
++                return true;
++            } else {
++                if (pscr_down) {
++                    pscr_down = false;
++                    unregister_code16(KC_PSCR);
++                    send_keyboard_report();
++                    return false;
++                }
++                return true;
++            }
++        } break;
+         case KC_FILP: {
+             if (record->event.pressed) {
+                 confinfo.filp = !confinfo.filp;
+                 eeconfig_confinfo_update(confinfo.raw);
++                master_to_slave_t m2s = {0};
++                slave_to_master_t s2m = {0};
++                m2s.cmd    = 0xF0;
++                m2s.body[0] = confinfo.filp;
++                transaction_rpc_exec(USER_SYNC_MMS, sizeof(m2s), &m2s, sizeof(s2m), &s2m);
+             }
+             return false;
+         } break;
+@@ -1051,24 +1118,20 @@ bool     process_record_kb(uint16_t keycode, keyrecord_t *record) {
+                     gpio_write_pin_high(LED_POWER_EN_PIN);
+                     gpio_write_pin_high(LED_POWER_EN2_PIN);
+                 }
+-                if (rgb_matrix_get_speed() >= 120) {
+-                    rgb_blink_dir();
++                if (rgb_matrix_get_val() >= RGB_MATRIX_MAXIMUM_BRIGHTNESS) {
++                    uint8_t iv = hs_ind_val();
++                    rgb_matrix_hs_indicator_set(54, (RGB){iv, iv, iv}, 250, 2);
+                 }
+             }
+         } break;
+         case RM_VALD: {
+             if (record->event.pressed) {
+                 if (rgb_matrix_get_val() <= RGB_MATRIX_VAL_STEP) {
+-                    if (is_keyboard_master()) {
+-                        gpio_write_pin_low(LED_POWER_EN_PIN);
+-                        gpio_write_pin_low(LED_POWER_EN2_PIN);
+-                    }
+                     for (uint8_t i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
+                         rgb_matrix_set_color(i, 0, 0, 0);
+                     }
+-                }
+-                if (rgb_matrix_get_speed() <= 30) {
+-                    rgb_blink_dir();
++                    uint8_t iv = hs_ind_val();
++                    rgb_matrix_hs_indicator_set(66, (RGB){iv, iv, iv}, 250, 2);
+                 }
+             }
+         } break;
+@@ -1163,6 +1226,21 @@ void housekeeping_task_kb(void) { // loop
+ 
+     charging_state = gpio_read_pin(HS_BAT_CABLE_PIN);
+ 
++    if (is_keyboard_master()) {
++        static uint32_t link_rpc_timer = 0;
++        if (timer_elapsed32(link_rpc_timer) >= 1000) {
++            link_rpc_timer         = timer_read32();
++            master_to_slave_t lm2s = {0};
++            slave_to_master_t ls2m = {0};
++            lm2s.cmd               = 0xF1;
++            lm2s.body[0]           = charging_state ? 1 : 0;
++            if (transaction_rpc_exec(USER_SYNC_MMS, sizeof(lm2s), &lm2s, sizeof(ls2m), &ls2m)) {
++                link_rx_ms         = timer_read32();
++                link_peer_charging = ls2m.body[0];
++            }
++        }
++    }
++
+     bat_full_flag = gpio_read_pin(BAT_FULL_PIN);
+ 
+     if (charging_state && (bat_full_flag)) {
+@@ -1471,6 +1549,8 @@ void rgb_matrix_hs_indicator(void) {
+ }
+ 
+ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
++    uint8_t iv = hs_ind_val();
++
+     if (test_white_light_flag) {
+         RGB rgb_test_open = hsv_to_rgb((HSV){.h = 0, .s = 0, .v = RGB_MATRIX_VAL_STEP * 5});
+         rgb_matrix_set_color_all(rgb_test_open.r, rgb_test_open.g, rgb_test_open.b);
+@@ -1488,9 +1568,9 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
+         ee_clr_timer = 0;
+     }
+ 
+-    if (host_keyboard_led_state().caps_lock) rgb_matrix_set_color(HS_RGB_INDEX_CAPS, 0x20, 0x20, 0x20);
++    if (host_keyboard_led_state().caps_lock) rgb_matrix_set_color(HS_RGB_INDEX_CAPS, iv, 0, 0);
+ 
+-    if (!keymap_is_mac_system() && keymap_config.no_gui) rgb_matrix_set_color(HS_RGB_INDEX_WIN_LOCK, 0x20, 0x20, 0x20);
++    if (!keymap_is_mac_system() && keymap_config.no_gui) rgb_matrix_set_color(HS_RGB_INDEX_WIN_LOCK, iv, 0, 0);
+ 
+ #ifdef RGBLIGHT_ENABLE
+     if (rgb_matrix_indicators_advanced_rgblight(led_min, led_max) != true) {
+@@ -1517,7 +1597,38 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
+ #endif
+ 
+     rgb_matrix_hs_indicator();
+-    if (confinfo.filp) rgb_matrix_set_color(32, RGB_MATRIX_MAXIMUM_BRIGHTNESS, RGB_MATRIX_MAXIMUM_BRIGHTNESS, RGB_MATRIX_MAXIMUM_BRIGHTNESS);
++    if (confinfo.filp) {
++        for (uint8_t i = 22; i <= 34; i++) {
++            rgb_matrix_set_color(i, iv, 0, 0);
++        }
++    }
++
++    {
++        bool link_ok  = (link_rx_ms != 0) && (timer_elapsed32(link_rx_ms) < 2000);
++        bool pow_bad  = link_ok && (charging_state != (bool)link_peer_charging) && (wireless_get_current_devs() == DEVS_USB);
++#ifdef LINK_WATCH_ALWAYS
++        bool watch_always = true;
++#else
++        bool watch_always = false;
++#endif
++        bool show_down = !link_ok && (charging_state || watch_always);
++        bool phase     = (timer_read32() % 800) < 400;
++
++        if (show_down) {
++            if (phase) {
++                rgb_matrix_set_color(22, iv, 0, 0);
++                rgb_matrix_set_color(29, iv, 0, 0);
++            }
++        } else if (pow_bad) {
++            if (phase) {
++                rgb_matrix_set_color(22, iv, iv / 2, 0);
++                rgb_matrix_set_color(29, iv, iv / 2, 0);
++            }
++        } else if (link_ok && !confinfo.filp) {
++            rgb_matrix_set_color(22, 0, iv / 2, 0);
++            rgb_matrix_set_color(29, 0, iv / 2, 0);
++        }
++    }
+     query();
+     return true;
+ }
+@@ -1627,6 +1738,16 @@ void user_sync_mms_slave_handler(uint8_t in_buflen, const void* in_data, uint8_t
+             gpio_write_pin_high(A8);
+             s2m->resp = 0x00;
+             break;
++        case 0xF0:
++            confinfo.filp = m2s->body[0];
++            s2m->resp     = 0x00;
++            break;
++        case 0xF1:
++            link_rx_ms         = timer_read32();
++            link_peer_charging = m2s->body[0];
++            s2m->body[0]       = charging_state ? 1 : 0;
++            s2m->resp          = 0x00;
++            break;
+         case 0xDD:
+             hs_reset_settings();
+             s2m->resp = 0x00;
