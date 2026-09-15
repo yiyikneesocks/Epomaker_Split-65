@@ -4,7 +4,12 @@
 > 非官方社区固件，仅适用于 WB32 主控的 EPOMAKER Split65（三模分体）。风险自负，变砖自救方法见文档（ROM 内 DFU，正常刷写几乎不会真砖）。
 
 **TL;DR / 快速上手**
-1. 下载 `firmware/` 里对应版本的 `.bin`（校验同目录 `SHA256SUMS.txt`）。
+
+📦 **Releases（直接下现成固件）**：
+- [v4 常醒版（推荐：双侧即按即醒）](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v4)
+- [v3.3 深睡版（续航优先：无线久置后需按左半唤醒）](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v3.3)
+
+1. 下载 Release 里对应版本的 `.bin`（校验同附 `SHA256SUMS.txt`）。
 2. **左右两半各刷一次**（同一文件）：左半按住 `ESC` 插 USB 进 DFU；右半先拨 RShift 后方开关到"下"、拔空格键帽+轴、用镊子**短接空格位两个触点**的同时插 USB（见 `docs/flashing-guide.zh.md` §5.3，示意图：<https://assets.st-note.com/img/1766185706-KeYQVmIEbskUu87qSOpFwDRy.jpg>）。刷过本固件后右半改为"按住 `7` 插线"。
 3. Windows 用 **QMK Toolbox**（含 wb32-dfu-updater）；首次需在 **Zadig** 里给 `WB Device in DFU Mode (342D:DFA0)` 绑定 **WinUSB** 驱动，否则 `wb32-dfu-updater_cli` 报 `No DFU capable USB device available`（Toolbox 依旧会误报 "Flash complete"，以日志为准）。
 4. 用 DFU(bootmagic) 方式进刷写模式**会清空 VIA 键位**，回落到固件内置默认层（本仓库 default keymap 已按下面"默认行为"摆好）。有自定义键位的先用 VIA 导出，刷完导入。
