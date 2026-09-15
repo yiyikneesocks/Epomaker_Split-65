@@ -6,7 +6,8 @@
 **TL;DR / 快速上手**
 
 📦 **Releases（直接下现成固件）**：
-- [**v5.1**（推荐）](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.1)：链路诊断状态机版，含 A/B 两 edition
+- [**v5.2**（推荐）](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.2)：诊断灯终版（红/灭/恢复绿闪；移除误报黄）
+- [v5.1](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.1)：状态机初版（有黄灯误报）｜ [v5](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5)：6/7 键+绿灯版
 - [v5](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5)：初版诊断灯（6/7 键，已被 v5.1 取代）
 - [v4 常醒版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v4) ｜ [v3.3 深睡版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v3.3)（=v5 去掉链路自诊断灯）
 
@@ -15,19 +16,16 @@
 3. Windows 用 **QMK Toolbox**（含 wb32-dfu-updater）；首次需在 **Zadig** 里给 `WB Device in DFU Mode (342D:DFA0)` 绑定 **WinUSB** 驱动，否则 `wb32-dfu-updater_cli` 报 `No DFU capable USB device available`（Toolbox 依旧会误报 "Flash complete"，以日志为准）。
 4. 用 DFU(bootmagic) 方式进刷写模式**会清空 VIA 键位**，回落到固件内置默认层（本仓库 default keymap 已按下面"默认行为"摆好）。有自定义键位的先用 VIA 导出，刷完导入。
 
-## v5.1 的两个版本怎么选（当前推荐；一个版号、两个 edition）
+## v5.2 的两个版本怎么选（当前推荐；一个版号、两个 edition）
 
-| | **v5.1-A** 深睡版 | **v5.1-B** 常醒版 ✅推荐 |
+| | **v5.2-A** 深睡版 | **v5.2-B** 常醒版 ✅推荐 |
 |---|---|---|
-| 功能（全相同，含链路诊断状态机） | 见下"功能"与指南附录 E | 同左 |
-| LPWR 深睡（无线） | **保留**：待机"数月" | **关闭**：待机"数周~月" |
-| 无线久置后唤醒 | **只能按左半**唤醒整键（右半灯效由主半单链驱动，照常亮；按右半叫不醒主半） | 左右任意键即按即醒 |
-| 链路诊断灯 | 全模式生效（右半常年在线，无误报基础） | 同左 |
-| USB 有线模式 | 两半都不深睡，正常 | 同左 |
-| SHA-256 (.bin) | `c6ce1034…38a33e30` | `ee31d8d7…a6fd7056` |
+| 功能（全相同） | v4 全部功能 + 链路诊断（红/灭/绿闪，见附录 E）+ 提示灯=灯效+1档 | 同左 |
+| LPWR 深睡（无线） | 保留：待机数月；久置后按左半唤醒整键 | 关闭：待机数周~月；任意键即醒 |
+| 诊断语义 | 红=通信断；灭=正常；绿闪3下=恢复（无黄灯，理由见附录 E） | 同左 |
+| SHA-256 (.bin) | `1cf5b7a6…09ee2ac4` | `6d3f5d32…a88cbe9c` |
 
-> 两版**同一份源码**，只差构建开关：`make epomaker/split65:default [LINK_WATCH_ALWAYS=yes]`。v5 各版（无状态机、灯在 6/7、+2 档）已被 v5.1 取代，releases 仍可下载。
-> 两版**同一份源码**，只差一个构建开关：`make epomaker/split65:default [LINK_WATCH_ALWAYS=yes]`。想换版本只需重刷，键位/EEPROM 不动。旧 release v3.3/v4 保留可下。
+> 两版**同一份源码**，只差一个构建开关：`make epomaker/split65:default [LINK_WATCH_ALWAYS=yes]`。v5.2 取代 v5.1（黄误报）/v5（绿灯版），旧 releases 仍可下载。
 
 ## 功能（两版一致）
 
@@ -38,7 +36,7 @@
 - **亮度联动**：以上指示亮度 = 主灯效亮度 **+2 档**、封顶最亮（最暗时指示仍可见，夜晚不刺眼）。
 - **Shift+Backspace = PrintScreen**（先按住 Shift 再按退格触发；发键瞬间自动摘除 Shift，避免 Windows 的 `Shift+PrtSc` 空绑定；普通退格/按住退格连删不受影响）。
 - 内置 default keymap：基础层顶左 = `` ` ``，Fn 层顶左 = `Esc`（bootmagic 清 EEPROM 后直接是你的常用布局）。
-- **v5.1 链路诊断状态机（左右 Ctrl 键）**：正常=**灭**；进异常（断线/数据坏=**红**、有线供电断=**黄**）**先闪 3 下→常亮**；恢复=**绿闪 3 下→灭**；开机即异常=直接常亮。单链模型下右半灯效照常由主半点亮，详见附录 E。
+- **v5.2 链路诊断灯（左右 Ctrl）**：正常=**灭**；通信断=**红**（运行中断先闪 3 下→常亮，开机即断直接常亮）；恢复=**绿闪 3 下→灭**。没有黄灯：从半 A7 感知不到链路供电，USB 下必误报（v5.1 的黄已删）；且 WS2812 灯链单向无回读，「通信好但灯链坏」原理性不可测——灯效本身就是人眼回读。详见指南附录 E。
 - 修复厂商 fork 的若干回归：USB 模式从半深睡导致的"久置右半失灵需重插连接线"等（详见 `docs/pitfalls.zh.md`）。
 
 ## 文件
