@@ -8,7 +8,6 @@
 📦 **Releases（直接下现成固件）**：
 - [**v5.2**（推荐）](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.2)：诊断灯终版（红/灭/恢复绿闪；移除误报黄）
 
-- [v5](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5)：初版诊断灯（6/7 键，已被 v5.1 取代）
 - [v4 常醒版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v4) ｜ [v3.3 深睡版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v3.3)（功能=v5.2 去掉诊断灯；**v3.3 即 A 线、v4 即 B 线**，A/B 命名自 v5 起）
 - ⚠️ v5/v5.1 为**废案**（绿灯噪音/黄灯误报），已从 releases 与 tags 撤下，仅存 git 历史。
 
@@ -43,8 +42,8 @@
 ## 文件
 
 ```
-firmware/v5.1/   # 当前推荐（A/B 的 .bin/.hex + SHA256SUMS）
 firmware/v5/     # 历史版本
+firmware/v5.2/   # 当前推荐（A/B 的 .bin/.hex + SHA256SUMS）
 firmware/v3.3/, firmware/v4/   # 历史版本（.bin/.hex + SHA256SUMS.txt）
 patches/                       # 相对 SRGBmods/EpomakerQMK@10dfd3e8 的键盘目录 diff（可审计/自建）
 via/EPOMAKER Split65.json      # 官方 VIA 布局描述文件（改键用）
