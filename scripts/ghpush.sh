@@ -59,11 +59,18 @@ setup_token() {
     esac
   fi
   local body
+  # 先无密码 reject：删掉该 host+username 的全部旧条目（含损坏的空密码条目）
+  printf 'protocol=https\nhost=github.com\nusername=%s\n\n' "$OWNER" | git_ credential reject 2>/dev/null || true
   body="$(printf 'protocol=https\nhost=github.com\nusername=%s\npassword=%s\n\n' "$OWNER" "$T")"
-  printf '%s' "$body" | git_ credential reject 2>/dev/null || true
   printf '%s' "$body" | git_ credential approve
   [ -f "$HOME/.git-credentials" ] && chmod 600 "$HOME/.git-credentials"
   unset T body
+  local chk
+  chk="$(printf 'protocol=https\nhost=github.com\nusername=%s\n\n' "$OWNER" \
+        | GIT_TERMINAL_PROMPT=0 "$GIT_BIN" "${G[@]}" credential fill | sed -n 's/^password=//p')"
+  [ "${#chk}" -ge 40 ] || die "落盘校验失败（读回长度 ${#chk}），请重跑 --setup-token 并只粘贴一次"
+  echo "[ghpush] 校验通过：${chk:0:5}…${chk: -4} (len=${#chk})"
+  unset chk
   echo "[ghpush] 已保存：${OWNER} @ github.com（掩码预览略）。现在起直接：scripts/ghpush.sh"
   check || die "保存后连通性检查失败，见上"
 }
