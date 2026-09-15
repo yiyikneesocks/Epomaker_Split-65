@@ -7,9 +7,10 @@
 
 📦 **Releases（直接下现成固件）**：
 - [**v5.2**（推荐）](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.2)：诊断灯终版（红/灭/恢复绿闪；移除误报黄）
-- [v5.1](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.1)：状态机初版（有黄灯误报）｜ [v5](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5)：6/7 键+绿灯版
+
 - [v5](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5)：初版诊断灯（6/7 键，已被 v5.1 取代）
-- [v4 常醒版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v4) ｜ [v3.3 深睡版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v3.3)（=v5 去掉链路自诊断灯）
+- [v4 常醒版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v4) ｜ [v3.3 深睡版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v3.3)（功能=v5.2 去掉诊断灯；**v3.3 即 A 线、v4 即 B 线**，A/B 命名自 v5 起）
+- ⚠️ v5/v5.1 为**废案**（绿灯噪音/黄灯误报），已从 releases 与 tags 撤下，仅存 git 历史。
 
 1. 下载 Release 里对应版本的 `.bin`（校验同附 `SHA256SUMS.txt`）。
 2. **左右两半各刷一次**（同一文件）：左半按住 `ESC` 插 USB 进 DFU；右半先拨 RShift 后方开关到"下"、拔空格键帽+轴、用镊子**短接空格位两个触点**的同时插 USB（见 `docs/flashing-guide.zh.md` §5.3，示意图：<https://assets.st-note.com/img/1766185706-KeYQVmIEbskUu87qSOpFwDRy.jpg>）。刷过本固件后右半改为"按住 `7` 插线"。
@@ -18,14 +19,14 @@
 
 ## v5.2 的两个版本怎么选（当前推荐；一个版号、两个 edition）
 
-| | **v5.2-A** 深睡版 | **v5.2-B** 常醒版 ✅推荐 |
+| | **v5.2-A** 深睡版（≙ 旧 v3.3 线） | **v5.2-B** 常醒版 ✅推荐（≙ 旧 v4 线） |
 |---|---|---|
 | 功能（全相同） | v4 全部功能 + 链路诊断（红/灭/绿闪，见附录 E）+ 提示灯=灯效+1档 | 同左 |
 | LPWR 深睡（无线） | 保留：待机数月；久置后按左半唤醒整键 | 关闭：待机数周~月；任意键即醒 |
 | 诊断语义 | 红=通信断；灭=正常；绿闪3下=恢复（无黄灯，理由见附录 E） | 同左 |
 | SHA-256 (.bin) | `1cf5b7a6…09ee2ac4` | `6d3f5d32…a88cbe9c` |
 
-> 两版**同一份源码**，只差一个构建开关：`make epomaker/split65:default [LINK_WATCH_ALWAYS=yes]`。v5.2 取代 v5.1（黄误报）/v5（绿灯版），旧 releases 仍可下载。
+> 两版**同一份源码**，只差一个构建开关：`make epomaker/split65:default [LINK_WATCH_ALWAYS=yes]`。v5/v5.1 已撤案（不在 releases/tags）；v3.3、v4 为旧功能集，可直接升级 v5.2 对应线。
 
 ## 功能（两版一致）
 
