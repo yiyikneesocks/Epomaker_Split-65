@@ -6,7 +6,8 @@
 **TL;DR / 快速上手**
 
 📦 **Releases（直接下现成固件）**：
-- [**v5.3**（推荐）](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.3)：PrtSc 改为仅右 Shift 触发
+- [**v5.4**（推荐）](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.4)：充电指示移到空格键并常显（红=充电中/绿=充满）+ 休眠时序对齐手册
+- [v5.3](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.3)：PrtSc 改为仅右 Shift 触发
 - [v5.2](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v5.2)：诊断灯终版（红/灭/恢复绿闪）
 
 - [v4 常醒版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v4) ｜ [v3.3 深睡版](https://github.com/yiyikneesocks/Epomaker_Split-65/releases/tag/v3.3)（功能=v5.2 去掉诊断灯；**v3.3 即 A 线、v4 即 B 线**，A/B 命名自 v5 起）
@@ -17,16 +18,16 @@
 3. Windows 用 **QMK Toolbox**（含 wb32-dfu-updater）；首次需在 **Zadig** 里给 `WB Device in DFU Mode (342D:DFA0)` 绑定 **WinUSB** 驱动，否则 `wb32-dfu-updater_cli` 报 `No DFU capable USB device available`（Toolbox 依旧会误报 "Flash complete"，以日志为准）。
 4. 用 DFU(bootmagic) 方式进刷写模式**会清空 VIA 键位**，回落到固件内置默认层（本仓库 default keymap 已按下面"默认行为"摆好）。有自定义键位的先用 VIA 导出，刷完导入。
 
-## v5.3 的两个版本怎么选（当前推荐；一个版号、两个 edition）
+## v5.4 的两个版本怎么选（当前推荐；一个版号、两个 edition）
 
-| | **v5.3-A** 深睡版（≙ 旧 v3.3 线） | **v5.3-B** 常醒版 ✅推荐（≙ 旧 v4 线） |
+| | **v5.4-A** 深睡版（≙ 旧 v3.3 线） | **v5.4-B** 常醒版 ✅推荐（≙ 旧 v4 线） |
 |---|---|---|
 | 功能（全相同） | v4 全部功能 + 链路诊断（红/灭/绿闪，见附录 E）+ 提示灯=灯效+1档 | 同左 |
 | LPWR 深睡（无线） | 保留：待机数月；久置后按左半唤醒整键 | 关闭：待机数周~月；任意键即醒 |
 | 诊断语义 | 红=通信断；灭=正常；绿闪3下=恢复（无黄灯，理由见附录 E） | 同左 |
-| SHA-256 (.bin) | `4902bec4…60b5ac13` | `2aa90620…ff1e3247` |
+| SHA-256 (.bin) | `399528ce…ef1860` | `5a436e3e…cacb71` |
 
-> 两版**同一份源码**，只差一个构建开关：`make epomaker/split65:default [LINK_WATCH_ALWAYS=yes]`。v5/v5.1 已撤案（不在 releases/tags）；v3.3、v4 为旧功能集，可直接升级 v5.3 对应线。
+> 两版**同一份源码**，只差一个构建开关：`make epomaker/split65:default [LINK_WATCH_ALWAYS=yes]`。v5/v5.1 已撤案（不在 releases/tags）；v3.3、v4 为旧功能集，可直接升级 v5.4 对应线。
 
 ## 功能（两版一致）
 
@@ -43,7 +44,8 @@
 ## 文件
 
 ```
-firmware/v5.3/   # 当前推荐（A/B 的 .bin/.hex + SHA256SUMS）
+firmware/v5.4/   # 当前推荐（A/B 的 .bin/.hex + SHA256SUMS）
+firmware/v5.3/   # 历史版本
 firmware/v5.2/   # 历史版本
 firmware/v3.3/, firmware/v4/   # 历史版本（.bin/.hex + SHA256SUMS.txt）
 patches/                       # 相对 SRGBmods/EpomakerQMK@10dfd3e8 的键盘目录 diff（可审计/自建）
